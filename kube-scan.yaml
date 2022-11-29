@@ -457,7 +457,7 @@ spec:
     spec:
       containers:
         - name: kube-scan-ui
-          image: octarinesec/kubescan-scanner-ui:20.5
+          image:  su6680/kube-scan-client:1.0 
           imagePullPolicy: Always
           env:
             - name: API_SERVER_PORT
@@ -466,8 +466,10 @@ spec:
               value: "mailto:info@octarinesec.com?subject=Octarine%20Contact%20Request"
             - name: WEBSITE_LINK
               value: "https://www.octarinesec.com"
+            - name: API_SERVER_HOST
+              value: "localhost"    
         - name: kube-scan
-          image: octarinesec/kubescan-scanner:20.5
+          image:  su6680/kube-scan-server:1.0 
           env:
             - name: KUBESCAN_PORT
               value: "80"

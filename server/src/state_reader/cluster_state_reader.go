@@ -204,7 +204,7 @@ func (reader *ClusterStateReader) readNsState(clusterState *state.Cluster, prevS
 	}
 	for _, ingress := range ingresses.Items {
 		ingress.Kind = "Ingress"
-		ingress.APIVersion = "extensions/v1beta1"
+		ingress.APIVersion = "networking.k8s.io/v1"
 		clusterState.Update(reader.ingressControllerTracker.TrackIngress(ingress))
 	}
 	pods, err := reader.kubeClient.CoreV1().Pods(namespace.Name).List(metav1.ListOptions{})
